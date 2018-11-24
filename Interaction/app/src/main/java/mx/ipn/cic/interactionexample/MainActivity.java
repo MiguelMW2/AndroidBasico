@@ -2,7 +2,6 @@ package mx.ipn.cic.interactionexample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btnProcess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("1", "Se presionó el botón (anónima)");
+
                 //Dentro del comportamiento, al presionar el boton
                 //El texto ingresado en el EditText mostrarlo en el TextView
                 //Borrar el texto del EditText (vaciarlo)
