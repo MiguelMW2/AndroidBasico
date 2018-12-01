@@ -3,8 +3,10 @@ package mx.ipn.cic.adapters;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Adapter adapter = adapterView.getAdapter();
+                SongModel song = (SongModel) adapter.getItem(position);
+                Toast.makeText(getApplicationContext(), "Se presionó " + song.getName(), Toast.LENGTH_LONG).show();
             }
         });
     }
