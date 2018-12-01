@@ -5,21 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Main2Activity">
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activity 2"
-        android:textAlignment="center"
-        android:textSize="30sp" />
+        android:layout_gravity="center"
+        android:text="ListView"
+        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btnBack"
+    <ListView
+        android:id="@+id/lvLista"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Atrás"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent"
+        tools:listitem="@layout/layout_item" />
 
 </LinearLayout>

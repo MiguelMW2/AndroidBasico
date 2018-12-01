@@ -3,6 +3,8 @@ package mx.ipn.cic.activitiesexample;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
@@ -23,5 +25,13 @@ public class Main2Activity extends AppCompatActivity {
             TextView tvTitle = findViewById(R.id.tvTitle);
             tvTitle.setText(mensaje);
         }
+        Button btnAtras = findViewById(R.id.btnBack);
+        btnAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                //Main2Activity.this.finish();
+            }
+        });
     }
 }
