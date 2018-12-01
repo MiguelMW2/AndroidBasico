@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
         ListViewAdapter adapter = new ListViewAdapter(lista);
         lvLista.setAdapter(adapter);
 
+        // adapterView -> ListView
+        // view -> Vista presionada
+        // position -> Posición del elemento presionado
+        // id -> id del elemento presionado
         lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
