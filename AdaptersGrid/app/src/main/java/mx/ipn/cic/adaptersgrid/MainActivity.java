@@ -1,5 +1,6 @@
 package mx.ipn.cic.adaptersgrid;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +33,14 @@ public class MainActivity extends AppCompatActivity {
                 Adapter adapter = adapterView.getAdapter();
                 SongModel item = (SongModel) adapter.getItem(position);
                 Toast.makeText(getApplicationContext(), "Presionó: " + item, Toast.LENGTH_SHORT).show();
+                navegar(item);
             }
         });
+    }
+
+    private void navegar(SongModel item) {
+        Intent intent = new Intent(this, Main2Activity.class);
+        intent.putExtra("song", item);
+        startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
 package mx.ipn.cic.adapters;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,10 +21,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListView lvLista = findViewById(R.id.lvLista);
-        List<SongModel> lista = generateList(10);
 
+        ListView lvLista = findViewById(R.id.lvLista);
+        List<SongModel> lista = SongModel.defaultItems(10);
         ListViewAdapter adapter = new ListViewAdapter(lista);
+
         lvLista.setAdapter(adapter);
 
         // adapterView -> ListView
@@ -35,17 +37,15 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Adapter adapter = adapterView.getAdapter();
                 SongModel song = (SongModel) adapter.getItem(position);
-                Toast.makeText(getApplicationContext(), "Se presionó " + song.getName(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Se presionó " + song, Toast.LENGTH_LONG).show();
+                navegar(song);
             }
         });
     }
 
-    private List<SongModel> generateList(int items) {
-        List<SongModel> aux = new ArrayList<>();
-        for(int x = 1; x <= items; x++) {
-            SongModel song = new SongModel("Nombre " + x, "Artista " + x);
-            aux.add(song);
-        }
-        return aux;
+    private void navegar(SongModel song) {
+        Intent intent = new Intent(this, Main2Activity.class);
+        intent.putExtra("song", song);
+        startActivity(intent);
     }
 }
