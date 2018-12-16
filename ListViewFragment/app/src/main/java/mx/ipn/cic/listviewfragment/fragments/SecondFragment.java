@@ -2,15 +2,12 @@ package mx.ipn.cic.listviewfragment.fragments;
 
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import java.io.Serializable;
 
 import mx.ipn.cic.listviewfragment.R;
 import mx.ipn.cic.listviewfragment.model.SongModel;
@@ -22,7 +19,7 @@ public class SecondFragment extends Fragment {
 
     private static final String SONG_MODEL = "SONG_MODEL";
 
-    private Serializable song;
+    private SongModel song;
 
     public static SecondFragment newInstance(SongModel song) {
 
@@ -45,8 +42,8 @@ public class SecondFragment extends Fragment {
 
         Bundle arguments = this.getArguments();
 
-        if(arguments == null){
-            this.song = arguments.getSerializable(SONG_MODEL);
+        if(arguments != null) {
+            this.song = (SongModel) arguments.getSerializable(SONG_MODEL);
         }
     }
 
@@ -59,6 +56,7 @@ public class SecondFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
 
         TextView tvArtist = view.findViewById(R.id.tvArtist);
@@ -66,11 +64,9 @@ public class SecondFragment extends Fragment {
         TextView tvDuration = view.findViewById(R.id.tvDuration);
         TextView tvYear = view.findViewById(R.id.tvYear);
 
-        SongModel songInformation = (SongModel) this.song;
-
-        tvArtist.setText(songInformation.getArtist());
-        tvSongName.setText(songInformation.getName());
-        tvDuration.setText("" + songInformation.getDuration());
-        tvYear.setText("" + songInformation.getYear());
+        tvArtist.setText(this.song.getArtist());
+        tvSongName.setText(this.song.getName());
+        tvDuration.setText("" + this.song.getDuration());
+        tvYear.setText("" + this.song.getYear());
     }
 }

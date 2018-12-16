@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.List;
 
 import mx.ipn.cic.listviewfragment.R;
@@ -59,7 +59,7 @@ public class FirstFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Adapter adapter = adapterView.getAdapter();
                 SongModel song = (SongModel) adapter.getItem(position);
-                //Toast.makeText(getContext(), "Se presionó " + song, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Se presionó " + song, Toast.LENGTH_LONG).show();
                 navegar(song);
             }
         });
