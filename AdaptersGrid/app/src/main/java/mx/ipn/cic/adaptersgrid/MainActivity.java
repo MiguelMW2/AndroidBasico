@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         GridView gridView = findViewById(R.id.gvCuadricula);
-        List<SongModel> item = SongModel.defaultItems(20);
-        SongAdapter songAdapter = new SongAdapter(item);
+        List<SongModel> items = SongModel.defaultItems(20);
+        SongAdapter songAdapter = new SongAdapter(items);
 
         gridView.setAdapter(songAdapter);
 
